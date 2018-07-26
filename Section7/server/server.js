@@ -23,7 +23,7 @@ app.post('/todos', authenticate, (req, res) => {
 
     todo.save().then((doc) => {
         res.send(doc);
-    }).catch((e) => {
+    }, (e) => {
         res.status(400).send(e);
     });
 });
@@ -45,9 +45,9 @@ app.get('/todos/:id', authenticate, (req, res) => {
         return res.status(404).send();
     } 
 
-    Todo.findOne(
-        {_id: id,
-         _creator: req.user._id
+    Todo.findOne({
+        _id: id,
+        _creator: req.user._id
     }).then((todo) => {
         if (!todo) {
             return res.status(404).send();

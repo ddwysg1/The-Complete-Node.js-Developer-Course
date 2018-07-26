@@ -58,7 +58,7 @@ UserSchema.methods.removeToken = function(token) {
             tokens: {token}
         }
     });
-}
+};
 
 UserSchema.statics.findByToken = function(token) {
     var User = this;
@@ -92,9 +92,9 @@ UserSchema.statics.findByCredentials = function(email, password) {
                 } else {
                     reject();
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 };
 
 UserSchema.pre('save', function (next) {
